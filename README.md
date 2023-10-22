@@ -4,8 +4,11 @@ Our project is a web application called Courses for Erasmus Students (CES) and a
 
 ## Roles and responsabilies
   ·Iñaki Domínguez Imoberdorff (Scrum Master and Product Owner)
+  
   ·Marta (Development team)
+  
   ·Angel (Development team)
+  
   ·Javi (Development team)
 
 ## Communication estrategies

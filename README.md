@@ -5,8 +5,8 @@ Our project is a web application called Courses for Erasmus Students (CES) and a
 ## Roles and responsabilies
 -Iñaki Domínguez Imoberdorff (Scrum Master and Product Owner)
 -Marta Grimaldos López (Development team)
--Angel (Development team)  
--Javi (Development team)
+-Angel Brionesa Muñoz (Development team)  
+-Javier Molina Cuesta (Development team)
 
 ## Communication estrategies
 Our main communications are: the private WhatsApp group, discord channel and in-person meetings. We usually hold at least one face-to-face meeting per week to update ourselves on how we are progressing and make future decisions. We use the WhatsApp group for any crucial questions that require more instant attention and it is available whenever needed. Finally, we use discord as a support measure in case we cannot all meet in person for some reason.

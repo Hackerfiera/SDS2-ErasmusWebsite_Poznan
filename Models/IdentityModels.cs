@@ -29,5 +29,7 @@ namespace ErasmusSDS.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ErasmusSDS.Models.Course> Courses { get; set; }
     }
 }

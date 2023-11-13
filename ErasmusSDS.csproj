@@ -183,9 +183,9 @@
     <Compile Include="Migrations\202311082038288_Courses.Designer.cs">
       <DependentUpon>202311082038288_Courses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311112314220_Gramos.cs" />
-    <Compile Include="Migrations\202311112314220_Gramos.Designer.cs">
-      <DependentUpon>202311112314220_Gramos.cs</DependentUpon>
+    <Compile Include="Migrations\202311131442533_Migracion.cs" />
+    <Compile Include="Migrations\202311131442533_Migracion.Designer.cs">
+      <DependentUpon>202311131442533_Migracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -285,9 +285,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311082038288_Courses.resx">
       <DependentUpon>202311082038288_Courses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311112314220_Gramos.resx">
-      <DependentUpon>202311112314220_Gramos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

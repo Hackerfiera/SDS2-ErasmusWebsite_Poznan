@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\DegreesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,9 +183,14 @@
     <Compile Include="Migrations\202311082038288_Courses.Designer.cs">
       <DependentUpon>202311082038288_Courses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311112314220_Gramos.cs" />
+    <Compile Include="Migrations\202311112314220_Gramos.Designer.cs">
+      <DependentUpon>202311112314220_Gramos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Degree.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,7 +229,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Course.cshtml" />
+    <Content Include="Views\Home\Degree.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -251,6 +257,11 @@
     <Content Include="Views\Courses\Details.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Degrees\Create.cshtml" />
+    <Content Include="Views\Degrees\Delete.cshtml" />
+    <Content Include="Views\Degrees\Details.cshtml" />
+    <Content Include="Views\Degrees\Edit.cshtml" />
+    <Content Include="Views\Degrees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311082038288_Courses.resx">
       <DependentUpon>202311082038288_Courses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311112314220_Gramos.resx">
+      <DependentUpon>202311112314220_Gramos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

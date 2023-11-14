@@ -187,6 +187,14 @@
     <Compile Include="Migrations\202311131442533_Migracion.Designer.cs">
       <DependentUpon>202311131442533_Migracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311141807501_Relationship.cs" />
+    <Compile Include="Migrations\202311141807501_Relationship.Designer.cs">
+      <DependentUpon>202311141807501_Relationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311141821334_Relationship2.cs" />
+    <Compile Include="Migrations\202311141821334_Relationship2.Designer.cs">
+      <DependentUpon>202311141821334_Relationship2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -285,6 +293,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311082038288_Courses.resx">
       <DependentUpon>202311082038288_Courses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311141807501_Relationship.resx">
+      <DependentUpon>202311141807501_Relationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311141821334_Relationship2.resx">
+      <DependentUpon>202311141821334_Relationship2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -32,6 +32,12 @@ namespace ErasmusSDS.Controllers
             {
                 return HttpNotFound();
             }
+
+            var coursesForDegree = db.Courses.Where(c => c.DegreeID == id).ToList();
+            degree = db.Degrees.FirstOrDefault(d => d.DegreeID == id);
+
+            ViewBag.CoursesForDegree = coursesForDegree;
+
             return View(degree);
         }
 
@@ -42,8 +48,8 @@ namespace ErasmusSDS.Controllers
         }
 
         // POST: Degrees/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DegreeID,Name")] Degree degree)
@@ -74,8 +80,8 @@ namespace ErasmusSDS.Controllers
         }
 
         // POST: Degrees/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "DegreeID,Name")] Degree degree)

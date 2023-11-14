@@ -19,6 +19,18 @@
         </dd>
 
     </dl>
+
+    <h4>Degree Courses:</h4>
+    <ul>
+        @foreach (var course in ViewBag.CoursesForDegree)
+        {
+            <li>
+            @course.Name
+            @Html.ActionLink("- info    ", "Details", "Courses", new { id = @course.CourseID }, null)
+            <!-- Ajusta esta línea con la propiedad que quieres mostrar -->
+            </li>
+        }
+    </ul>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.DegreeID }) |

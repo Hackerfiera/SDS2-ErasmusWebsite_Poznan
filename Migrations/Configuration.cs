@@ -10,7 +10,6 @@ namespace ErasmusSDS.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ErasmusSDS.Models.ApplicationDbContext";
         }
 
         protected override void Seed(ErasmusSDS.Models.ApplicationDbContext context)

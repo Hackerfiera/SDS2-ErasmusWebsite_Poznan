@@ -3,10 +3,29 @@ namespace ErasmusSDS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Gramoss : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Courses",
+                c => new
+                    {
+                        CourseID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        DegreeID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.CourseID);
+            
+            CreateTable(
+                "dbo.Degrees",
+                c => new
+                    {
+                        DegreeID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.DegreeID);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -94,6 +113,8 @@ namespace ErasmusSDS.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Degrees");
+            DropTable("dbo.Courses");
         }
     }
 }

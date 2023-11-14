@@ -2,37 +2,36 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Asegúrate de utilizar tu diseño compartido si lo tienes.
 }
 
-<h2>Details</h2>
+<div class="container">
+    <h2>Details of Degree</h2>
+    <div>
+        <h4>@Html.DisplayFor(model => model.Name)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </dl>
 
-<div>
-    <h4>Degree</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-    </dl>
-
-    <h4>Degree Courses:</h4>
-    <ul>
-        @foreach (var course in ViewBag.CoursesForDegree)
-        {
-            <li>
-            @course.Name
-            @Html.ActionLink("- info    ", "Details", "Courses", new { id = @course.CourseID }, null)
-            <!-- Ajusta esta línea con la propiedad que quieres mostrar -->
-            </li>
-        }
-    </ul>
+        <h4>Degree Courses:</h4>
+        <ul class="list-group">
+            @foreach (var course in ViewBag.CoursesForDegree)
+            {
+                <li class="list-group-item">
+                    <span>@course.Name</span>
+                    @Html.ActionLink("Course Details", "Details", "Courses", new { id = @course.CourseID }, new { @class = "btn btn-info btn-sm pull-right" })
+                </li>
+            }
+        </ul>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DegreeID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.DegreeID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

@@ -175,25 +175,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311081912385_InitialCreate.cs" />
-    <Compile Include="Migrations\202311081912385_InitialCreate.Designer.cs">
-      <DependentUpon>202311081912385_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311082038288_Courses.cs" />
-    <Compile Include="Migrations\202311082038288_Courses.Designer.cs">
-      <DependentUpon>202311082038288_Courses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311131442533_Migracion.cs" />
-    <Compile Include="Migrations\202311131442533_Migracion.Designer.cs">
-      <DependentUpon>202311131442533_Migracion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311141807501_Relationship.cs" />
-    <Compile Include="Migrations\202311141807501_Relationship.Designer.cs">
-      <DependentUpon>202311141807501_Relationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311141821334_Relationship2.cs" />
-    <Compile Include="Migrations\202311141821334_Relationship2.Designer.cs">
-      <DependentUpon>202311141821334_Relationship2.cs</DependentUpon>
+    <Compile Include="Migrations\202311141949037_Gramoss.cs" />
+    <Compile Include="Migrations\202311141949037_Gramoss.Designer.cs">
+      <DependentUpon>202311141949037_Gramoss.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -288,17 +272,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202311081912385_InitialCreate.resx">
-      <DependentUpon>202311081912385_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311082038288_Courses.resx">
-      <DependentUpon>202311082038288_Courses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311141807501_Relationship.resx">
-      <DependentUpon>202311141807501_Relationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311141821334_Relationship2.resx">
-      <DependentUpon>202311141821334_Relationship2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311141949037_Gramoss.resx">
+      <DependentUpon>202311141949037_Gramoss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

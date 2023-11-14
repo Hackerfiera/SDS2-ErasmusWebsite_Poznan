@@ -7,13 +7,13 @@ namespace ErasmusSDS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Relationship2 : IMigrationMetadata
+    public sealed partial class Gramoss : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Relationship2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Gramoss));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311141821334_Relationship2"; }
+            get { return "202311141949037_Gramoss"; }
         }
         
         string IMigrationMetadata.Source

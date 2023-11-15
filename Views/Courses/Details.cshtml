@@ -1,34 +1,40 @@
 ﻿@model ErasmusSDS.Models.Course
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Course Details";
 }
 
-<h2>Details</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="text-center">Course Details</h2>
+                </div>
+                <div class="panel-body">
+                    <h3>@Html.DisplayFor(model => model.Name)</h3>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Course Name
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
 
-<div>
-    <h4>Course</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DegreeID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DegreeID)
-        </dd>
-
-    </dl>
+                        <dt>
+                            Degree ID
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.DegreeID)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="panel-footer">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

@@ -13,6 +13,10 @@ namespace ErasmusSDS.Models
         public int CourseID { get; set; }
         public string Name { get; set; }
 
+        [DataType(DataType.MultilineText)]
+
+        public string Information { get; set; }
+
         public int DegreeID { get; set; }
     }
 }

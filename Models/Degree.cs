@@ -13,5 +13,6 @@ namespace ErasmusSDS.Models
         [Key]
         public int DegreeID { get; set; }
         public string Name { get; set; }
+        public string Information { get; set; }
     }
 }

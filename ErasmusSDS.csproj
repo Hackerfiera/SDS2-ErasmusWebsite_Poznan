@@ -179,6 +179,10 @@
     <Compile Include="Migrations\202311141949037_Gramoss.Designer.cs">
       <DependentUpon>202311141949037_Gramoss.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311151807341_JaviMC.cs" />
+    <Compile Include="Migrations\202311151807341_JaviMC.Designer.cs">
+      <DependentUpon>202311151807341_JaviMC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -210,6 +214,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <None Include="Views\Shared\EditorTemplates\Information.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -274,6 +279,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202311141949037_Gramoss.resx">
       <DependentUpon>202311141949037_Gramoss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311151807341_JaviMC.resx">
+      <DependentUpon>202311151807341_JaviMC.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -38,6 +38,6 @@ Our main communications are: the private WhatsApp group, discord channel and in-
 
 ## Instalation manual
 
-* 1 - Open the solution (Erasmus.sln) with Visual Studio 2019 with ASP.NET framework installed.
+* 1 - Open the solution (ErasmusSDS.sln) with Visual Studio 2019 with ASP.NET framework installed.
 * 2 - Double-click the solution on the Solution Explorer inside Visual Studio to load it.
 * 3 - Execute the solution with the top button.

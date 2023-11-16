@@ -37,3 +37,7 @@ Our project is a web application called Courses for Erasmus Students (CES) and a
 Our main communications are: the private WhatsApp group, discord channel and in-person meetings. We usually hold at least one face-to-face meeting per week to update ourselves on how we are progressing and make future decisions. We use the WhatsApp group for any crucial questions that require more instant attention and it is available whenever needed. Finally, we use discord as a support measure in case we cannot all meet in person for some reason.
 
 ## Instalation manual
+
+. 1 - Open the solution (Erasmus.sln) with Visual Studio 2019 with ASP.NET framework installed.
+. 2 - Double-click the solution on the Solution Explorer inside Visual Studio to load it.
+. 3 - Execute the solution with the top button.

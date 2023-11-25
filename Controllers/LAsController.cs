@@ -10,113 +10,107 @@ using ErasmusSDS.Models;
 
 namespace ErasmusSDS.Controllers
 {
-    public class DegreesController : Controller
+    public class LAsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Degrees
+        // GET: LAs
         public ActionResult Index()
         {
-                return View(db.Degrees.ToList());
+            return View(db.LAs.ToList());
         }
 
-        // GET: Degrees/Details/5
+        // GET: LAs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Degree degree = db.Degrees.Find(id);
-            if (degree == null)
+            LA lA = db.LAs.Find(id);
+            if (lA == null)
             {
                 return HttpNotFound();
             }
-
-            var coursesForDegree = db.Courses.Where(c => c.DegreeID == id).ToList();
-            degree = db.Degrees.FirstOrDefault(d => d.DegreeID == id);
-
-            ViewBag.CoursesForDegree = coursesForDegree;
-
-            return View(degree);
+            return View(lA);
         }
 
-        // GET: Degrees/Create
+        // GET: LAs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Degrees/Create
+        // POST: LAs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DegreeID,Name,Information")] Degree degree)
+        public ActionResult Create([Bind(Include = "LAID,NombreEstudiante,status")] LA lA)
         {
             if (ModelState.IsValid)
             {
-                db.Degrees.Add(degree);
+                
+                db.LAs.Add(lA);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(degree);
+            return View(lA);
         }
 
-        // GET: Degrees/Edit/5
+        // GET: LAs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Degree degree = db.Degrees.Find(id);
-            if (degree == null)
+            LA lA = db.LAs.Find(id);
+            if (lA == null)
             {
                 return HttpNotFound();
             }
-            return View(degree);
+            return View(lA);
         }
 
-        // POST: Degrees/Edit/5
+        // POST: LAs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DegreeID,Name,Information")] Degree degree)
+        public ActionResult Edit([Bind(Include = "LAID,NombreEstudiante,status")] LA lA)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(degree).State = EntityState.Modified;
+                db.Entry(lA).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(degree);
+            return View(lA);
         }
 
-        // GET: Degrees/Delete/5
+        // GET: LAs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Degree degree = db.Degrees.Find(id);
-            if (degree == null)
+            LA lA = db.LAs.Find(id);
+            if (lA == null)
             {
                 return HttpNotFound();
             }
-            return View(degree);
+            return View(lA);
         }
 
-        // POST: Degrees/Delete/5
+        // POST: LAs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Degree degree = db.Degrees.Find(id);
-            db.Degrees.Remove(degree);
+            LA lA = db.LAs.Find(id);
+            db.LAs.Remove(lA);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -129,5 +123,19 @@ namespace ErasmusSDS.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult UpdateStatus(int LAID)
+        {
+            var la = db.LAs.Find(LAID);
+
+            if (la != null)
+            {
+                la.status = "signed";
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

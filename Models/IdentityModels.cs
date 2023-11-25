@@ -33,5 +33,7 @@ namespace ErasmusSDS.Models
         public System.Data.Entity.DbSet<ErasmusSDS.Models.Course> Courses { get; set; }
 
         public System.Data.Entity.DbSet<ErasmusSDS.Models.Degree> Degrees { get; set; }
+
+        public System.Data.Entity.DbSet<ErasmusSDS.Models.LA> LAs { get; set; }
     }
 }

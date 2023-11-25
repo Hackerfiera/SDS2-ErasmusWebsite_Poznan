@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DegreesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LAsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,9 +184,18 @@
     <Compile Include="Migrations\202311151807341_JaviMC.Designer.cs">
       <DependentUpon>202311151807341_JaviMC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311221537205_braions.cs" />
+    <Compile Include="Migrations\202311221537205_braions.Designer.cs">
+      <DependentUpon>202311221537205_braions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311221636535_braions1.cs" />
+    <Compile Include="Migrations\202311221636535_braions1.Designer.cs">
+      <DependentUpon>202311221636535_braions1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\LA.cs" />
     <Compile Include="Models\Degree.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -214,6 +224,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\LAs\Create.cshtml" />
+    <Content Include="Views\LAs\Delete.cshtml" />
+    <Content Include="Views\LAs\Details.cshtml" />
+    <Content Include="Views\LAs\Edit.cshtml" />
+    <Content Include="Views\LAs\Index.cshtml" />
     <None Include="Views\Shared\EditorTemplates\Information.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -282,6 +297,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311151807341_JaviMC.resx">
       <DependentUpon>202311151807341_JaviMC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311221537205_braions.resx">
+      <DependentUpon>202311221537205_braions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311221636535_braions1.resx">
+      <DependentUpon>202311221636535_braions1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

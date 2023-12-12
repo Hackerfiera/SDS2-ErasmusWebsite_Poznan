@@ -2,17 +2,38 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>LA</h4>
-    <hr />
+<div class="container">
+    <h2>LA Details</h2>
     <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.NombreEstudiante)</dt>
+        <dd>@Html.DisplayFor(model => model.NombreEstudiante)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.status)</dt>
+        <dd>@Html.DisplayFor(model => model.status)</dd>
+
+        <dt>Courses</dt>
+        <dd>
+            @if (Model.Courses != null && Model.Courses.Any())
+            {
+                <ul>
+                    @foreach (var courseName in Model.Courses)
+                    {
+                        <li>@courseName</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No courses available</p>
+            }
+        </dd>
     </dl>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.LAID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.LAID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

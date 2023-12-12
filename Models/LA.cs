@@ -16,5 +16,7 @@ namespace ErasmusSDS.Models
         public String NombreEstudiante { get; set; }
 
         public String status { get; set; }
+
+        public List<string> Courses { get; set; } = new List<string>();
     }
 }

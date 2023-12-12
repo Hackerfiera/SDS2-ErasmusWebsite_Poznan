@@ -188,9 +188,13 @@
     <Compile Include="Migrations\202311221537205_braions.Designer.cs">
       <DependentUpon>202311221537205_braions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311221636535_braions1.cs" />
-    <Compile Include="Migrations\202311221636535_braions1.Designer.cs">
-      <DependentUpon>202311221636535_braions1.cs</DependentUpon>
+    <Compile Include="Migrations\202312041708422_add-migration braions.cs" />
+    <Compile Include="Migrations\202312041708422_add-migration braions.Designer.cs">
+      <DependentUpon>202312041708422_add-migration braions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312051329383_anyels.cs" />
+    <Compile Include="Migrations\202312051329383_anyels.Designer.cs">
+      <DependentUpon>202312051329383_anyels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -301,8 +305,11 @@
     <EmbeddedResource Include="Migrations\202311221537205_braions.resx">
       <DependentUpon>202311221537205_braions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311221636535_braions1.resx">
-      <DependentUpon>202311221636535_braions1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312041708422_add-migration braions.resx">
+      <DependentUpon>202312041708422_add-migration braions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312051329383_anyels.resx">
+      <DependentUpon>202312051329383_anyels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Cart";
+}
+<h2>Cart</h2>
+<h4>View the courses on your Learning Agreement Cart</h4>
+
+<p>
+    <input class="btn btn-danger" type="button" value="Empty Cart" onclick="emptyCarrito(); location.reload()" />
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="cart-items-container">
+
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/CartNumber")
+}

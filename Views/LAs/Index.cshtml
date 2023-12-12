@@ -33,32 +33,9 @@
                         @using (Html.BeginForm("UpdateStatus", "LAs", FormMethod.Post))
                         {
                             @Html.Hidden("LAID", item.LAID)
-                            <input type="submit" value="Sign" class="btn btn-success btn-sm" />
+                            <input type="submit" value="Sign Learning Agreement" class="btn btn-success btn-sm" style="margin-top: 5px" />
                         }
 
-                        <!-- Agregar nuevo curso -->
-                        @using (Html.BeginForm("AddCourse", "LAs", FormMethod.Post))
-                        {
-                            @Html.Hidden("laId", item.LAID)
-                            <label>Nombre del Curso:</label>
-                            <input type="text" name="courseName" required /> <!-- Cambiado a courseName -->
-
-                            <input type="submit" value="Agregar Curso" class="btn btn-info btn-sm" />
-                        }
-
-
-                        <!-- Eliminar curso -->
-                        @using (Html.BeginForm("RemoveCourse", "LAs", FormMethod.Post))
-                        {
-                            @Html.Hidden("laId", item.LAID)
-                            <label>Nombre del Curso a Eliminar:</label>
-                            <input type="text" name="CourseName" required />
-
-                            <label>Instructor del Curso a Eliminar:</label>
-                            <input type="text" name="Instructor" required />
-
-                            <input type="submit" value="Eliminar Curso" class="btn btn-warning btn-sm" />
-                        }
                     </td>
                 </tr>
             }

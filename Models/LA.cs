@@ -17,6 +17,6 @@ namespace ErasmusSDS.Models
 
         public String status { get; set; }
 
-        public List<string> Courses { get; set; } = new List<string>();
+        public string CourseList { get; set; }
     }
 }

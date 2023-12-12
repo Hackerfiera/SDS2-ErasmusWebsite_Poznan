@@ -26,5 +26,12 @@ namespace ErasmusSDS.Controllers
 
             return View();
         }
+
+        public ActionResult Cart()
+        {
+            ViewBag.Message = "Your cart.";
+
+            return View();
+        }
     }
 }

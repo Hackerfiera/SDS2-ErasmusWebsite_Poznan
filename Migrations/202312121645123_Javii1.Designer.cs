@@ -7,13 +7,13 @@ namespace ErasmusSDS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addmigrationbraions : IMigrationMetadata
+    public sealed partial class Javii1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addmigrationbraions));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Javii1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202312041708422_add-migration braions"; }
+            get { return "202312121645123_Javii1"; }
         }
         
         string IMigrationMetadata.Source

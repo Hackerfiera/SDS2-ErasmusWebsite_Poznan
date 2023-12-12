@@ -3,7 +3,7 @@ namespace ErasmusSDS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Gramoss : DbMigration
+    public partial class Javii : DbMigration
     {
         public override void Up()
         {
@@ -13,6 +13,7 @@ namespace ErasmusSDS.Migrations
                     {
                         CourseID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        Information = c.String(),
                         DegreeID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CourseID);
@@ -23,8 +24,19 @@ namespace ErasmusSDS.Migrations
                     {
                         DegreeID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        Information = c.String(),
                     })
                 .PrimaryKey(t => t.DegreeID);
+            
+            CreateTable(
+                "dbo.LAs",
+                c => new
+                    {
+                        LAID = c.Int(nullable: false, identity: true),
+                        NombreEstudiante = c.String(),
+                        status = c.String(),
+                    })
+                .PrimaryKey(t => t.LAID);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -113,6 +125,7 @@ namespace ErasmusSDS.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.LAs");
             DropTable("dbo.Degrees");
             DropTable("dbo.Courses");
         }

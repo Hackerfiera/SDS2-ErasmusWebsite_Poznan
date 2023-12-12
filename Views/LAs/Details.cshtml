@@ -14,16 +14,16 @@
         <dt>@Html.DisplayNameFor(model => model.status)</dt>
         <dd>@Html.DisplayFor(model => model.status)</dd>
 
-        <dt>Courses</dt>
-        <dd>
-            @if (Model.Courses != null && Model.Courses.Any())
+        <label class="control-label col-md-2" style="text-align: right; width: 160px; padding: 0">Course List</label>
+            @if (Model.CourseList != null && Model.CourseList.Length >= 1)
             {
-                <ul>
-                    @foreach (var courseName in Model.Courses)
-                    {
-                        <li>@courseName</li>
-                    }
-                </ul>
+                <div>
+                    @Html.EditorFor(model => model.CourseList, new { htmlAttributes = new { @class = "form-control hidden", @id = "courseIDs" } })
+                </div>
+
+                @Html.Partial("~/Views/Shared/_CourseListNoButtons.cshtml")
+
+
             }
             else
             {
@@ -36,4 +36,9 @@
         @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
     </p>
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/CourseList")
+}
+
 

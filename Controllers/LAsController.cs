@@ -51,7 +51,7 @@ namespace ErasmusSDS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LAID,NombreEstudiante,status")] LA lA)
+        public ActionResult Create([Bind(Include = "LAID,NombreEstudiante,status,CourseList")] LA lA)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace ErasmusSDS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LAID,NombreEstudiante,status")] LA lA)
+        public ActionResult Edit([Bind(Include = "LAID,NombreEstudiante,status,CourseList")] LA lA)
         {
             if (ModelState.IsValid)
             {
@@ -142,7 +142,7 @@ namespace ErasmusSDS.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult AddCourse(int laId, string courseName)
+ /*       public ActionResult AddCourse(int laId, string courseName)
         {
             // Recuperar el objeto LA de la base de datos o de alguna fuente de datos
             var la = db.LAs.Find(laId);  // Ajusta según tu tecnología de acceso a datos
@@ -165,6 +165,7 @@ namespace ErasmusSDS.Controllers
             }
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult RemoveCourse(int laId, String course)
@@ -183,6 +184,7 @@ namespace ErasmusSDS.Controllers
 
             return RedirectToAction("Index");
         }
+ */
 
     }
 }

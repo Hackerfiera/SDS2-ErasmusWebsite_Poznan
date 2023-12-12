@@ -176,25 +176,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311141949037_Gramoss.cs" />
-    <Compile Include="Migrations\202311141949037_Gramoss.Designer.cs">
-      <DependentUpon>202311141949037_Gramoss.cs</DependentUpon>
+    <Compile Include="Migrations\202312121610572_Javii.cs" />
+    <Compile Include="Migrations\202312121610572_Javii.Designer.cs">
+      <DependentUpon>202312121610572_Javii.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311151807341_JaviMC.cs" />
-    <Compile Include="Migrations\202311151807341_JaviMC.Designer.cs">
-      <DependentUpon>202311151807341_JaviMC.cs</DependentUpon>
+    <Compile Include="Migrations\202312121645123_Javii1.cs" />
+    <Compile Include="Migrations\202312121645123_Javii1.Designer.cs">
+      <DependentUpon>202312121645123_Javii1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311221537205_braions.cs" />
-    <Compile Include="Migrations\202311221537205_braions.Designer.cs">
-      <DependentUpon>202311221537205_braions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312041708422_add-migration braions.cs" />
-    <Compile Include="Migrations\202312041708422_add-migration braions.Designer.cs">
-      <DependentUpon>202312041708422_add-migration braions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312051329383_anyels.cs" />
-    <Compile Include="Migrations\202312051329383_anyels.Designer.cs">
-      <DependentUpon>202312051329383_anyels.cs</DependentUpon>
+    <Compile Include="Migrations\202312121650303_Javii2.cs" />
+    <Compile Include="Migrations\202312121650303_Javii2.Designer.cs">
+      <DependentUpon>202312121650303_Javii2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -218,6 +210,10 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Cart.js" />
+    <Content Include="Scripts\IndexCart.js" />
+    <Content Include="Scripts\CartNumber.js" />
+    <Content Include="Scripts\CourseList.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -233,7 +229,10 @@
     <Content Include="Views\LAs\Details.cshtml" />
     <Content Include="Views\LAs\Edit.cshtml" />
     <Content Include="Views\LAs\Index.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
     <None Include="Views\Shared\EditorTemplates\Information.cshtml" />
+    <Content Include="Views\Shared\_CourseListNoButtons.cshtml" />
+    <None Include="Views\Shared\_CourseList.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -296,20 +295,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202311141949037_Gramoss.resx">
-      <DependentUpon>202311141949037_Gramoss.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312121610572_Javii.resx">
+      <DependentUpon>202312121610572_Javii.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311151807341_JaviMC.resx">
-      <DependentUpon>202311151807341_JaviMC.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312121645123_Javii1.resx">
+      <DependentUpon>202312121645123_Javii1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311221537205_braions.resx">
-      <DependentUpon>202311221537205_braions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312041708422_add-migration braions.resx">
-      <DependentUpon>202312041708422_add-migration braions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312051329383_anyels.resx">
-      <DependentUpon>202312051329383_anyels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312121650303_Javii2.resx">
+      <DependentUpon>202312121650303_Javii2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

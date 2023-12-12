@@ -123,5 +123,23 @@ namespace ErasmusSDS.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult GetNameById(int id)
+        {
+            // Supongamos que tienes una lista de cursos o accedes a una base de datos
+            // para encontrar el Course con la ID proporcionada
+            Course course = db.Courses.Find(id);
+            ; 
+
+            if (course != null)
+            {
+                // Devolver solo el nombre del curso
+                return Json(new { Name = course.Name, Url = Url.Action("Details", "Courses", new { id = id }) }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { Name = "Error: Course not found" }, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

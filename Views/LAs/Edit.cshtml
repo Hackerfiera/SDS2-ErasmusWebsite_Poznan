@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
     <h4>LA</h4>
     <hr />
@@ -34,6 +34,14 @@
     </div>
 
     <div class="form-group">
+        @Html.EditorFor(model => model.CourseList, new { htmlAttributes = new { @class = "form-control hidden", @id = "courseIDs" } })
+    </div>
+
+    <label class="control-label col-md-2">Course List</label>
+
+    @Html.Partial("~/Views/Shared/_CourseList.cshtml")
+
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Save" class="btn btn-default" />
         </div>
@@ -47,4 +55,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/CourseList")
 }

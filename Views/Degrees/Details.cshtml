@@ -15,16 +15,15 @@
                 <div class="panel-body">
                     <h3>@Html.DisplayFor(model => model.Name)</h3>
                     <p>@Html.DisplayFor(model => model.Information)</p>
-                    <h3>@Html.DisplayFor(model => model.DegreeID)</h3>
                     <hr />
 
                     <h3>Degree Courses:</h3>
                     <ul class="list-group">
                         @foreach (var course in ViewBag.CoursesForDegree)
                         {
-                            <li class="list-group-item">
+                            <li class="list-group-item" style="display: flex; justify-content: space-between; align-items: center">
                                 <span>@course.Name</span>
-                                @Html.ActionLink("Course Details", "Details", "Courses", new { id = @course.CourseID }, new { @class = "btn btn-info btn-sm pull-right" })
+                                @Html.ActionLink("Course Details", "Details", "Courses", new { id = @course.CourseID }, new { @class = "btn btn-info btn-sm" })
                             </li>
                         }
                     </ul>

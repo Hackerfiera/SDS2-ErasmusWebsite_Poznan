@@ -60,15 +60,17 @@ function agregarCourse(course) {
         listItem.innerHTML = course.name;
         listItem.style.marginBottom = "5px"
 
+        var buttonsDiv = document.createElement("div");
+
         var detailsButton = document.createElement("a");
         detailsButton.innerHTML = "Details";
         detailsButton.classList.add("btn");
         detailsButton.classList.add("btn-primary");
-        detailsButton.style.marginLeft = "10px";
         detailsButton.setAttribute("href", course.url);
         detailsButton.setAttribute("target", "_blank");
 
-        listItem.appendChild(detailsButton);
+        listItem.appendChild(buttonsDiv);
+        buttonsDiv.appendChild(detailsButton);
 
         if (!courseList.dataset.nobuttons) {
             // Botón para borrar el curso
@@ -81,8 +83,13 @@ function agregarCourse(course) {
                 borrarCourse(listItem, course.id);
             };
 
-            listItem.appendChild(deleteButton);
+            buttonsDiv.appendChild(deleteButton);
         }
+
+        listItem.classList.add("list-group-item")
+        listItem.style.display = "flex";
+        listItem.style.justifyContent = "space-between";
+        listItem.style.alignItems = "center";
 
         // Agregar el curso a la lista
         courseList.appendChild(listItem);

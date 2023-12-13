@@ -16,9 +16,11 @@
         </tr>
     </thead>
     <tbody id="cart-items-container">
-
     </tbody>
 </table>
+
+<p style="display: flex; justify-content: end">@Html.ActionLink("Create Learning Agreement »", "Create", "LAs", new { area = "" }, new { @class = "btn btn-primary btn-lg" })</p>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/CartNumber")

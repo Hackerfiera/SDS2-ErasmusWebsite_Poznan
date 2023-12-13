@@ -8,7 +8,7 @@
 <div class="container">
     <h2>LA Details</h2>
     <dl class="dl-horizontal">
-        <dt>@Html.DisplayNameFor(model => model.NombreEstudiante)</dt>
+        <dt><label>Student Name</label></dt>
         <dd>@Html.DisplayFor(model => model.NombreEstudiante)</dd>
 
         <dt>@Html.DisplayNameFor(model => model.status)</dt>
@@ -27,7 +27,7 @@
             }
             else
             {
-                <p>No courses available</p>
+                <dd><label>No courses available</label></dd>
             }
         </dd>
     </dl>

@@ -96,7 +96,7 @@ namespace ErasmusSDS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LAID,NombreEstudiante,status,CourseList")] LA lA)
+        public ActionResult Edit([Bind(Include = "LAID,NombreEstudiante,status,CourseList,UserID")] LA lA)
         {
             if (ModelState.IsValid)
             {

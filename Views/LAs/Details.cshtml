@@ -15,20 +15,20 @@
         <dd>@Html.DisplayFor(model => model.status)</dd>
 
         <label class="control-label col-md-2" style="text-align: right; width: 160px; padding: 0">Course List</label>
-            @if (Model.CourseList != null && Model.CourseList.Length >= 1)
-            {
-                <div>
-                    @Html.EditorFor(model => model.CourseList, new { htmlAttributes = new { @class = "form-control hidden", @id = "courseIDs" } })
-                </div>
+        @if (Model.CourseList != null && Model.CourseList.Length >= 1)
+        {
+            <div>
+                @Html.EditorFor(model => model.CourseList, new { htmlAttributes = new { @class = "form-control hidden", @id = "courseIDs" } })
+            </div>
 
-                @Html.Partial("~/Views/Shared/_CourseListNoButtons.cshtml")
+            @Html.Partial("~/Views/Shared/_CourseListNoButtons.cshtml")
 
 
-            }
-            else
-            {
-                <dd><label>No courses available</label></dd>
-            }
+        }
+        else
+        {
+            <dd><label>No courses available</label></dd>
+        }
         </dd>
     </dl>
     <p>

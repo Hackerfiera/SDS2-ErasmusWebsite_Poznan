@@ -1,0 +1,58 @@
+﻿@model ErasmusSDS.Models.Comment
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Create Comment";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Add Comment to @ViewBag.CreateCommentCourseName</h4>
+    <hr />
+    @Html.HiddenFor(model => model.AuthorID, new { @Value = User.Identity.GetUserId() })
+    @Html.HiddenFor(model => model.CourseID, new { @Value = ViewBag.CreateCommentCourseID })
+    <div class="form-group">
+        <label class = "control-label col-md-2">Would you recommend this course?</label>
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.DropDownListFor(model => model.Positive,
+             new List<SelectListItem> {
+                  new SelectListItem { Value = "true" , Text = "Yes" },
+                  new SelectListItem { Value = "false" , Text = "No" }               },
+             new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(model => model.Positive, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Comment</label>
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Text, new { @class = "form-control", @style = "border: 1px solid #ccc; width:100%;" })
+            @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Cancel", "Details", "Courses", new { id = ViewBag.CreateCommentCourseID }, htmlAttributes: new { @class = "btn btn-danger" })
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

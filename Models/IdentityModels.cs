@@ -35,5 +35,7 @@ namespace ErasmusSDS.Models
         public System.Data.Entity.DbSet<ErasmusSDS.Models.Degree> Degrees { get; set; }
 
         public System.Data.Entity.DbSet<ErasmusSDS.Models.LA> LAs { get; set; }
+
+        public System.Data.Entity.DbSet<ErasmusSDS.Models.Comment> Comments { get; set; }
     }
 }

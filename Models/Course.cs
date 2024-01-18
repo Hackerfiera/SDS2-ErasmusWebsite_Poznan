@@ -18,5 +18,9 @@ namespace ErasmusSDS.Models
         public string Information { get; set; }
 
         public int DegreeID { get; set; }
+        
+        public int ECTS { get; set; }
+
+        public string ECTSCardURL { get; set; }
     }
 }

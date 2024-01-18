@@ -12,7 +12,7 @@ function obtenerNombreCursoPorId(courseId) {
     return fetch(`/Courses/GetNameById/${courseId}`)
         .then(response => response.json())
         .then(data => {
-            return { name: data.Name, url: data.Url };
+            return { name: data.Name, url: data.Url, ECTS: data.ECTS };
         })
         .catch(error => console.error('Error:', error));
 }
@@ -24,7 +24,8 @@ async function cargarCourses(ids) {
             const data = await obtenerNombreCursoPorId(ids[i]);
             const nombreCurso = data.name;
             const url = data.url;
-            curso = { id: ids[i], name: nombreCurso, url: url };
+            const ECTS = data.ECTS
+            curso = { id: ids[i], name: nombreCurso, url: url, ECTS: ECTS };
 
             var courseAlreadyPresent = courses.find(function (json) {
                 return json.id === curso.id;
@@ -57,7 +58,7 @@ function agregarCourse(course) {
 
         // Crear elemento de lista
         var listItem = document.createElement("li");
-        listItem.innerHTML = course.name;
+        listItem.innerHTML = course.name + " (" + course.ECTS + " ECTS)"
         listItem.style.marginBottom = "5px"
 
         var buttonsDiv = document.createElement("div");

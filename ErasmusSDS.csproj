@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DegreesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -192,8 +193,21 @@
     <Compile Include="Migrations\202401181112438_Javi.Designer.cs">
       <DependentUpon>202401181112438_Javi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202401181203070_Javi1.cs" />
+    <Compile Include="Migrations\202401181203070_Javi1.Designer.cs">
+      <DependentUpon>202401181203070_Javi1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401181521345_Javi2.cs" />
+    <Compile Include="Migrations\202401181521345_Javi2.Designer.cs">
+      <DependentUpon>202401181521345_Javi2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401181929312_Javi3.cs" />
+    <Compile Include="Migrations\202401181929312_Javi3.Designer.cs">
+      <DependentUpon>202401181929312_Javi3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\LA.cs" />
     <Compile Include="Models\Degree.cs" />
@@ -234,6 +248,11 @@
     <Content Include="Views\LAs\Edit.cshtml" />
     <Content Include="Views\LAs\Index.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
     <None Include="Views\Shared\EditorTemplates\Information.cshtml" />
     <Content Include="Views\Shared\_CourseListNoButtons.cshtml" />
     <None Include="Views\Shared\_CourseList.cshtml" />
@@ -310,6 +329,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202401181112438_Javi.resx">
       <DependentUpon>202401181112438_Javi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401181203070_Javi1.resx">
+      <DependentUpon>202401181203070_Javi1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401181521345_Javi2.resx">
+      <DependentUpon>202401181521345_Javi2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401181929312_Javi3.resx">
+      <DependentUpon>202401181929312_Javi3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

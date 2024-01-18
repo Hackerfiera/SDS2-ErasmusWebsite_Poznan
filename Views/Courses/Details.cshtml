@@ -1,4 +1,6 @@
 ﻿@model ErasmusSDS.Models.Course
+@using Microsoft.AspNet.Identity;
+
 
 @{
     ViewBag.Title = "Course Details";
@@ -32,6 +34,20 @@
                         <dd>
                             @Html.DisplayFor(model => model.Information)
                         </dd>
+
+                        <dt>
+                            ECTS
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ECTS)
+                        </dd>
+
+                        <dt>
+                            ECTS Card
+                        </dt>
+                        <dd>
+                            <a href="@Model.ECTSCardURL" target="_blank">@Model.ECTSCardURL</a>
+                        </dd>
                     </dl>
                 </div>
                 <div class="panel-footer">
@@ -39,8 +55,43 @@
                     {
                         @Html.ActionLink("Edit", "Edit", new { id = Model.CourseID }, new { @class = "btn btn-primary" })
                     }
-                        @Html.ActionLink("Back to Degree", "Details", "Degrees", new { id = Model.DegreeID }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Back to Degree", "Details", "Degrees", new { id = Model.DegreeID }, new { @class = "btn btn-default" })
+                </div>
+                <div class="panel-footer">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 5px 0">
+                        <h3 style="margin:0">Comments (@ViewBag.CommentsForCourse.Count)</h3>
+                        @if (Request.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Add Comment", "Create", "Comments", new { course_id = Model.CourseID }, new { @class = "btn btn-primary" })
+                        }
                     </div>
+                    <ul class="list-group">
+                        @foreach (var comment in ViewBag.CommentsForCourse)
+                        {
+                        <li class="list-group-item" style="display: flex; justify-content: space-between; align-items: center">
+                            <div>
+                                @if (comment.Positive)
+                                {
+                                    <span>Recommended <span style="font-size: 20px">👍</span></span>
+                                }
+                                else
+                                {
+                                    <span>Not Recommended <span style="font-size: 20px">👎</span></span>
+                                }
+                                <i style="color:#666666";>@comment.Text</i>
+                            </div>
+                            <div>
+                                @if (User.IsInRole("Admin") || User.Identity.GetUserId() == comment.AuthorID)
+                                {
+                                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = @comment.CommentID }, new { @class = "btn btn-primary btn-sm" })
+                                    <span> </span>
+                                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = @comment.CommentID }, new { @class = "btn btn-danger btn-sm" })
+                                }
+                            </div>
+                        </li>
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

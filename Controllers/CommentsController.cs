@@ -10,118 +10,124 @@ using ErasmusSDS.Models;
 
 namespace ErasmusSDS.Controllers
 {
-    public class DegreesController : Controller
+    public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Degrees
+        // GET: Comments
         public ActionResult Index()
         {
-                return View(db.Degrees.ToList());
+            return View(db.Comments.ToList());
         }
 
-        // GET: Degrees/Details/5
+        // GET: Comments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Degree degree = db.Degrees.Find(id);
-            if (degree == null)
+            Comment comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return HttpNotFound();
             }
-
-            var coursesForDegree = db.Courses.Where(c => c.DegreeID == id).ToList();
-            degree = db.Degrees.FirstOrDefault(d => d.DegreeID == id);
-
-            ViewBag.CoursesForDegree = coursesForDegree;
-
-            return View(degree);
+            return View(comment);
         }
 
-        // GET: Degrees/Create
-        public ActionResult Create()
+        // GET: Comments/Create
+        public ActionResult Create(int? course_id)
         {
-            if(!User.IsInRole("Admin")){
-                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            if(course_id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            ViewBag.CreateCommentCourseID = (int)course_id;
+            Course course = db.Courses.Find((int)course_id);
+
+            if(course == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.CreateCommentCourseName = course.Name;
+
             return View();
         }
 
-        // POST: Degrees/Create
+        // POST: Comments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DegreeID,Name,Information")] Degree degree)
+        public ActionResult Create([Bind(Include = "CommentID,AuthorID,Positive,Text,CourseID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
-                db.Degrees.Add(degree);
+                db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Courses", new { id = comment.CourseID });
             }
 
-            return View(degree);
+            return View(comment);
         }
 
-        // GET: Degrees/Edit/5
+        // GET: Comments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Degree degree = db.Degrees.Find(id);
-            if (degree == null)
+            Comment comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return HttpNotFound();
             }
-            return View(degree);
+            return View(comment);
         }
 
-        // POST: Degrees/Edit/5
+        // POST: Comments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DegreeID,Name,Information")] Degree degree)
+        public ActionResult Edit([Bind(Include = "CommentID,AuthorID,Positive,Text,CourseID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(degree).State = EntityState.Modified;
+                db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Courses", new { id = comment.CourseID }) ;
             }
-            return View(degree);
+            return View(comment);
         }
 
-        // GET: Degrees/Delete/5
+        // GET: Comments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Degree degree = db.Degrees.Find(id);
-            if (degree == null)
+            Comment comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return HttpNotFound();
             }
-            return View(degree);
+            return View(comment);
         }
 
-        // POST: Degrees/Delete/5
+        // POST: Comments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Degree degree = db.Degrees.Find(id);
-            db.Degrees.Remove(degree);
+            Comment comment = db.Comments.Find(id);
+            db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Courses", new { id = comment.CourseID });
         }
 
         protected override void Dispose(bool disposing)

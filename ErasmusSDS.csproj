@@ -188,6 +188,10 @@
     <Compile Include="Migrations\202312121650303_Javii2.Designer.cs">
       <DependentUpon>202312121650303_Javii2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202401181112438_Javi.cs" />
+    <Compile Include="Migrations\202401181112438_Javi.Designer.cs">
+      <DependentUpon>202401181112438_Javi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312121650303_Javii2.resx">
       <DependentUpon>202312121650303_Javii2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401181112438_Javi.resx">
+      <DependentUpon>202401181112438_Javi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

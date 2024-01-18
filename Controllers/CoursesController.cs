@@ -10,6 +10,11 @@ using ErasmusSDS.Models;
 
 namespace ErasmusSDS.Controllers
 {
+    public class DegreeIdViewmodel
+    {
+        public int DegreeId { get; set; }
+    }
+
     public class CoursesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -36,9 +41,26 @@ namespace ErasmusSDS.Controllers
         }
 
         // GET: Courses/Create
-        public ActionResult Create()
+        public ActionResult Create(int? degree_id)
         {
-            return View();
+            if (degree_id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var viewModel = new DegreeIdViewmodel
+            {
+                DegreeId = (int) degree_id,
+                // Asigna otros valores al modelo según tus necesidades
+            };
+
+            ViewBag.CreateCourseData = viewModel;
+
+            ViewData["CreateCourseData"] = degree_id;
+
+            Course course = new Course { DegreeID = (int)degree_id };
+
+            return View(course);
         }
 
         // POST: Courses/Create

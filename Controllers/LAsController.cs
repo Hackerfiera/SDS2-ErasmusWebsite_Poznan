@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ErasmusSDS.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ErasmusSDS.Controllers
 {
@@ -17,8 +18,19 @@ namespace ErasmusSDS.Controllers
         // GET: LAs
         public ActionResult Index()
         {
+            string userId = User.Identity.GetUserId();
+
+            List<LA> laList = new List<LA> { };
+
             // Obtener la lista de objetos LA desde la base de datos
-            List<LA> laList = db.LAs.ToList();
+            if (User.IsInRole("Admin"))
+            {
+                laList = db.LAs.ToList();
+            }
+            else
+            {
+                laList = db.LAs.Where(p => p.UserID == userId).ToList();
+            }
 
             // Pasar la lista de LA a la vista
             return View(laList);
@@ -55,7 +67,8 @@ namespace ErasmusSDS.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                string userId = User.Identity.GetUserId();
+                lA.UserID = userId;
                 db.LAs.Add(lA);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -135,7 +148,15 @@ namespace ErasmusSDS.Controllers
 
             if (la != null)
             {
-                la.status = "signed";
+                if (User.IsInRole("Admin"))
+                {
+                    la.status = "Signed by Coordinator";
+                }
+                else
+                {
+                    la.status = "Signed by Student";
+                }
+                    
                 db.SaveChanges();
             }
 

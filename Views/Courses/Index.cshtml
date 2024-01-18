@@ -7,30 +7,35 @@
 
 <div class="container">
     <h2>Course List</h2>
-    <p>
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
-    </p>
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.Name)</th>
-                <th>@Html.DisplayNameFor(model => model.DegreeID)</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    @if (User.IsInRole("Admin"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+    }
+        <table class="table table-striped table-bordered">
+            <thead>
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => item.DegreeID)</td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }, new { @class = "btn btn-primary btn-sm" })
-                        @Html.ActionLink("Details", "Details", new { id = item.CourseID }, new { @class = "btn btn-info btn-sm" })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CourseID }, new { @class = "btn btn-danger btn-sm" })
-                    </td>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.CourseID }, new { @class = "btn btn-info btn-sm" })
+                            @if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }, new { @class = "btn btn-primary btn-sm" })
+                                <span> </span>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CourseID }, new { @class = "btn btn-danger btn-sm" })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

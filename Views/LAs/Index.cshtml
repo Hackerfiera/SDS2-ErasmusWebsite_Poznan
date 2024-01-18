@@ -6,40 +6,60 @@
 }
 
 <div class="container">
-    <h2>LA List</h2>
-    <p>
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
-    </p>
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Student Name</th>
-                <th>LA Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    @if (Request.IsAuthenticated)
+    {
+        <h2>LA List</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+        <table class="table table-striped table-bordered">
+            <thead>
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.NombreEstudiante)</td>
-                    <td>@Html.DisplayFor(modelItem => item.status)</td>
-
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.LAID }, new { @class = "btn btn-primary btn-sm" })
-                        @Html.ActionLink("Details", "Details", new { id = item.LAID }, new { @class = "btn btn-info btn-sm" })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.LAID }, new { @class = "btn btn-danger btn-sm" })
-
-                        @using (Html.BeginForm("UpdateStatus", "LAs", FormMethod.Post))
-                        {
-                            @Html.Hidden("LAID", item.LAID)
-                            <input type="submit" value="Sign Learning Agreement" class="btn btn-success btn-sm" style="margin-top: 5px" />
-                        }
-
-                    </td>
+                    <th>Student Name</th>
+                    <th>LA Status</th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.NombreEstudiante)</td>
+                        <td>@Html.DisplayFor(modelItem => item.status)</td>
+
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.LAID }, new { @class = "btn btn-info btn-sm" })
+                            @if (item.status == "Draft" || User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.LAID }, new { @class = "btn btn-primary btn-sm" })
+                                <span> </span>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.LAID }, new { @class = "btn btn-danger btn-sm" })
+
+                            }
+
+                            @using (Html.BeginForm("UpdateStatus", "LAs", FormMethod.Post))
+                            {
+                                @Html.Hidden("LAID", item.LAID)
+                                if (item.status == "Draft" || (User.IsInRole("Admin") && item.status == "Signed by Student"))
+                                {
+                                    <input type="submit" value="Sign Learning Agreement" class="btn btn-success btn-sm" style="margin-top: 5px" />
+
+                                }
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h3>You need to be logged in to create a Learning Agreement!</h3>
+        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary", @style = "margin-right:5px" })
+        @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary" })
+
+
+    }
 </div>
 

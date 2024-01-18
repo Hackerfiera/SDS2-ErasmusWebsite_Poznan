@@ -18,21 +18,37 @@
                     <hr />
 
                     <h3>Degree Courses:</h3>
-                    <ul class="list-group">
-                        @foreach (var course in ViewBag.CoursesForDegree)
-                        {
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Create new", "Create", "Courses", new { degree_id = Model.DegreeID }, new { @class = "btn btn-primary", @style="margin-bottom: 5px" })
+                    }
+                    <div class="panel-footer">
+                        <ul class="list-group">
+                            @foreach (var course in ViewBag.CoursesForDegree)
+                            {
                             <li class="list-group-item" style="display: flex; justify-content: space-between; align-items: center">
                                 <span>@course.Name</span>
-                                @Html.ActionLink("Course Details", "Details", "Courses", new { id = @course.CourseID }, new { @class = "btn btn-info btn-sm" })
+                                <div>
+                                    @Html.ActionLink("Course Details", "Details", "Courses", new { id = @course.CourseID }, new { @class = "btn btn-info btn-sm" })
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        @Html.ActionLink("Edit", "Edit", "Courses", new { id = @course.CourseID }, new { @class = "btn btn-primary btn-sm" })
+                                        <span> </span>
+                                        @Html.ActionLink("Delete", "Delete", "Courses", new { id = @course.CourseID }, new { @class = "btn btn-danger btn-sm" })
+                                    }
+                                </div>
                             </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.DegreeID }, new { @class = "btn btn-primary" })
                         }
-                    </ul>
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                    </div>
                 </div>
-                <div class="panel-footer">
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.DegreeID }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
-                </div>
-            </div>
         </div>
     </div>
 </div>

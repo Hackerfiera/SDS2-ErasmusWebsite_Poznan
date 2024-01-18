@@ -18,5 +18,7 @@ namespace ErasmusSDS.Models
         public String status { get; set; }
 
         public string CourseList { get; set; }
+
+        public string UserID { get; set; }
     }
 }

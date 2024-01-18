@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ErasmusSDS.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ErasmusSDS.Controllers
 {
